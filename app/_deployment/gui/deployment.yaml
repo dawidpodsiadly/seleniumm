@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gui
+  template:
+    metadata:
+      labels:
+        app: gui
+    spec:
+      containers:
+      - name: gui
+        image: gcr.io/mythic-fire-446020-d5/gui:latest
+        ports:
+        - containerPort: 80
